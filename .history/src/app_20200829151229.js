@@ -49,8 +49,7 @@ app.put("/repositories/:id", (request, response) => {
       id,
       title,
       url,
-      techs,
-      likes: repositories[repositoryindex].likes
+      techs
   };
 
   repositories[repositoryindex] = repository;
@@ -77,17 +76,6 @@ app.delete("/repositories/:id", (request, response) => {
 
 app.post("/repositories/:id/like", (request, response) => {
   // TODO
-  const {id} = request.params;
-
-  const repositoryindex = repositories.findIndex(repository => repository.id == id);
-
-  if (repositoryindex < 0) {
-    return response.status(400).json({error: "Repository does not exist!"});
-  }
-
-  repositories[repositoryindex].likes++;
-
-  return response.json(repositories[repositoryindex]);
 
 });
 
