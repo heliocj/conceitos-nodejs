@@ -13,15 +13,13 @@ const repositories = [];
 
 app.get("/repositories", (request, response) => {
   // TODO
-  return response.json(repositories);
-
 });
 
 app.post("/repositories", (request, response) => {
   // TODO
-  const {title, url, techs, likes = 0} = request.body;
+  const {title, url, techs} = request.body;
 
-  const repositorie = {id: uuid(), title, url, techs, likes};
+  const repositorie = {id: uuid(), title, url, techs};
 
   repositories.push(repositorie);
 
